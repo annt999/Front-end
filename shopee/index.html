@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></head>
 <body>
     <div class="app">
         <header class="header">
-            <div class="grid">
-                <nav class="header__navbar">
+            <div class="grid wide">
+                <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__list">
                         <li class="header__item header__separate">
                             <a href="" class="header__link">Kênh Người Bán </a>
@@ -111,7 +113,10 @@
                     </ul>
                 </nav>
                 <div class="header-with-search">
-                    <div class="header__logo">
+                    <label for="mobile-search-checkbox" class="header__mobile-search header-with-search-icon">
+                        <i class="fas fa-search"></i>
+                    </label>
+                    <a class="header__logo  header__logo-link hide-on-tablet">
                         <svg viewBox="0 0 192 65" class="header__logo-img">
                             <g fill-rule="evenodd">
                                 <path fill="#fff"
@@ -119,8 +124,8 @@
                                 ></path>
                             </g>
                         </svg>
-
-                    </div>
+                    </a>
+                    <input type="checkbox" id="mobile-search-checkbox" class="header__search-checkbox" hidden>
                     <div class="header__search">
                         <div class="header__search-search-wrap">
                             <input type="text" class="header__search-search" placeholder="Tìm kiếm sản phẩm">
@@ -213,20 +218,36 @@
                                         </div>
                                     </li>
                                 </ul>
+                                <div class="header__cart-view-action">
+                                    <div class="header__cart-view-text">2 Thêm vào giỏ hàng</div>
+                                    <button class="header__cart-view-btn btn btn--primary">Xem giỏ hàng</button>
 
-                                <button class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-            
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Liên quan</a>
+                </li>
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">Mới nhất</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Bán chạy</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Giá</a>
+                </li>
+            </ul>
         </header>
         <div class="app__containter">
-            <div class="grid">
-                <div class="grid__row app_content">
-                    <div class="grid__column-2">
+            <div class="grid wide">
+                <div class="row sm-gutter app_content">
+                    <div class="col l-2 m-0 c-0">
                         <nav class="category">
                             <h3 class="category__heading">
                                 <i class="fas fa-list"></i>
@@ -245,8 +266,8 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="grid__column-10">
-                        <div class="home-filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="home-filter hide-on-mobile-tablet">
                             <span class="home-filtle__label">Sắp xếp theo</span>
                             <button class="btn home-filter__btn">Phổ biến</button>
                             <button class="btn btn--primary home-filter__btn">Mới nhất</button>
@@ -283,9 +304,34 @@
 
                         </div>
 
+                        <div class="mobile-category">
+                            <ul class="mobile-category__list">
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích  Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link"> Dụng cụ & thiết bị tiện ích </a>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="home-product">
-                            <div class="grid__row">
-                                <div class="grid__column-2-4">
+                            <div class="row sm-gutter">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -322,7 +368,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -359,7 +405,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -396,7 +442,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -433,7 +479,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -470,7 +516,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -507,7 +553,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -544,7 +590,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -581,7 +627,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -618,7 +664,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!--product item-->
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url('./assets/img/iphone12.png');"></div>
@@ -713,9 +759,9 @@
             
         </div>
         <footer class="footer">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__column-2-4">
+            <div class="grid wide footer__content">
+                <div class="row">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
                         <ul class="footer-list">
                             <li class="footer-list__item">
@@ -729,7 +775,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Về Shopee</h3>
                         <ul class="footer-list">
                             <li class="footer-list__item">
@@ -743,7 +789,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Thanh toán</h3>
                         <ul class="footer-list">
                             <li class="footer-list__item">
@@ -757,7 +803,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Theo dõi chúng tôi trên</h3>
                         <ul class="footer-list">
                             <li class="footer-list__item">
@@ -780,7 +826,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="footer__heading">Tải ứng dụng shopee ngay thôi</h3>
                         <a href="" class="footer__download">
                             <img src="./assets/img/qr-code.png" alt="" class="footer__download-qr">
@@ -795,8 +841,8 @@
                
             </div>
             <div class="footer__bottom">
-                <div class="grid">
-                    <div class="grid__row">
+                <div class="grid wide">
+                    <div class="row">
                         <p class="footer__text">© 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
                     </div>
                 </div>

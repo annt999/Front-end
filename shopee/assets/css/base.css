@@ -8,7 +8,8 @@
 
     --header-height: 120px;
     --navbar-height: 34px;
-    --header-with-search-height: calc(var(var(--header-height)) - var(var(--navbar-height)));
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height: 46px;
     --star-gold-color: #FFCE3E
 }
 
@@ -28,11 +29,6 @@ p {
 }
 
 /*Responsive*/
-.grid {
-    width: 1200px;      /*width tối đa là 1200px*/
-    max-width: 100%;    /*màn nhỏ hơn 1200px sẽ có kích thước tối đa 100% theo màn hình*/
-    margin: 0 auto;
-}
 
 .grid__full-with {
     width: 100%;
@@ -248,7 +244,4 @@ p {
     background-color: var(--primary-color);
     color: var(--white-color);
 
-}
-.pagination-item__icon {
-    
 }
