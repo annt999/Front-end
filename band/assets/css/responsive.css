@@ -1,0 +1,39 @@
+/* Mobile */
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .content__map {
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .header {
+        overflow: hidden;
+    }
+
+    .header__bar {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        height: var(--header-height);
+        width: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header__bar:hover {
+        cursor: pointer;
+        background-color: #f44336;
+    }
+
+    .header__list {
+        flex-direction: column;
+    }
+
+}
