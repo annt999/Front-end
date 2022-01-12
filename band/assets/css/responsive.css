@@ -44,15 +44,21 @@
 
     .header__item {
         width: 100%;
-        padding-left: 15px;
+        height: unset;
+    }
+    /* .header__link.header__link-has-more:hover ~ .header {
+        overflow: visible;
+    } */
+    .header__more-list {
+        background-color: black;
+        position: initial;
+        top: unset;
+        left: unset;
+    }
+    .header__more-link {
+        color: white;
+        padding-left: 35px;
     }
 
-    .header__item:hover a {
-        
-    }
-    .header__more-list {
-        position: initial;
-        background-color: black;
-    }
 
 }
