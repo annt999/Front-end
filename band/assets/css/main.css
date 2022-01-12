@@ -36,21 +36,20 @@
     height: 100%;
 }
 
+.header__item:hover .header__link:first-child{
+    color: #000;
+    background-color: #ccc;
+}
+
 .header__link {
     text-decoration: none;
     color: var(--white-color);
     padding: 0 15px;
-    display: block;
     font-size: 1.5rem;
     display: block;
     height: 100%;
     line-height: var(--header-height);
     text-transform: uppercase;
-}
-
-.header__link:hover {
-    color: #000;
-    background-color: #ccc;
 }
 
 .header__item-has-more {
@@ -337,8 +336,17 @@
 }
 
 /* Footer css*/
+footer {
+    background-color: black;
+}
 .footer__header i,
 .footer__description {
     font-size: 2rem;
     color: #888;
+}
+
+.footer__icon-top {
+    font-size: 2rem;
+    color: white;
+    padding: 16px 0;
 }

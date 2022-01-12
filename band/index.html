@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./assets/js/jquery-ui.min.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -13,37 +14,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></head>
     <title>Band</title>
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
     <div class="app">
         <header class="header" id="header">
             <nav class="header__navbar">
                 <ul class="header__list">
                     <li class="header__item">
-                        <a href="" class="header__link">Home</a>
+                        <a href="#" class="header__link">Home</a>
                     </li>
                     <li class="header__item">
-                        <a href="" class="header__link">Band</a>
+                        <a href="#band" class="header__link link">Band</a>
                     </li>
                     <li class="header__item">
-                        <a href="" class="header__link">Tour</a>
+                        <a href="#tour" class="header__link link">Tour</a>
                     </li>
                     <li class="header__item">
-                        <a href="" class="header__link">Contact</a>
+                        <a href="#contact" class="header__link link">Contact</a>
                     </li>
                     <li class="header__item header__item-has-more">
-                        <a href="" class="header__link header__link-has-more">
+                        <a href="#" class="header__link header__link-has-more">
                             <span>More</span>
                             <i class="fas fa-sort-down"></i>
                         </a>
                         <ul class="header__more-list">
                             <li class="header__more-item">
-                                <a href="" class="header__link header__more-link">Merchandise</a>
+                                <a href="#merchandise" class="header__link link header__more-link">Merchandise</a>
                             </li>
                             <li class="header__more-item">
-                                <a href="" class="header__link header__more-link">Extras</a>
+                                <a href="#extras" class="header__link link header__more-link">Extras</a>
                             </li>
                             <li class="header__more-item">
-                                <a href="" class="header__link header__more-link">Media</a>
+                                <a href="#media" class="header__link link header__more-link">Media</a>
                             </li>
                         </ul>
                     </li>
@@ -68,7 +69,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="content__about containter-center">
+            <div class="content__about containter-center" id="band">
                 <div class="row">
                     <div class="col l-12 m-12 c-12">
                         <h2 class="content__about-heading text-center">THE BAND</h2>
@@ -99,7 +100,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="content__tour-wrap">
+            <div class="content__tour-wrap" id="tour">
                 <div class="content__tour containter-center">
                     <div class="row">
                         <h2 class="content__tour-heading col l-12 m-12 c-12 text-center">
@@ -140,7 +141,7 @@
                             </div>
                         </li>
                         <li class="content__tour-detail col l-4 m-4 c-12">
-                            <div class="content__tour-detail-img" style="background-image: url(./assets/img/newyork.jpg);"></div>
+                            <div class="content__tour-detail-img" style="background-image: url(./assets/img/paris.jpg);"></div>
                             <div class="content__tour-detail-content">
                                 <h3 class="content__tour-detail-name">Paris</h3>
                                 <p class="content__tour-detail-date">Fri 27 Nov 2016</p>
@@ -149,7 +150,7 @@
                             </div>
                         </li>
                         <li class="content__tour-detail col l-4 m-4 c-12">
-                            <div class="content__tour-detail-img" style="background-image: url(./assets/img/newyork.jpg);"></div>
+                            <div class="content__tour-detail-img" style="background-image: url(./assets/img/sanfran.jpg);"></div>
                             <div class="content__tour-detail-content">
                                 <h3 class="content__tour-detail-name">San Francisco</h3>
                                 <p class="content__tour-detail-date">Fri 27 Nov 2016</p>
@@ -160,7 +161,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="content__contact-wrap">
+            <div class="content__contact-wrap" id="contact">
                 <div class="content__contact containter-center">
                     <div class="row">
                         <h2 class="content__contact-heading col l-12 m-12 c-12 text-center">
@@ -203,6 +204,7 @@
         </div>
         <footer>
             <div class="containter-center text-center">
+                <a class="link" href="#myPage" data-toggle="tooltip" title="TO TOP"><i class="footer__icon-top fas fa-chevron-up"></i></a>
                 <div class="footer__header col l-12 m-12 c-12">
                     <i class="fab fa-facebook-square"></i>
                     <i class="fab fa-instagram-square"></i>
@@ -212,27 +214,47 @@
             </div>
         </footer>
     </div>
+
+    <script type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script> 
+    <script type="text/javascript" src="./assets/js/jquery-ui.min.js"></script>
+       
     <script>
-        var header = document.getElementById('header');
-        var headerHeight = header.clientHeight
-        document.getElementById('mobile-menu').addEventListener("click", function() {
-            console.log(1)
-            var headerClosed = (header.clientHeight === headerHeight);
-            if (headerClosed) {
-                header.style.height = 'auto';
+        $(document).ready(function() {
+            var header = $('#header');
+            var headerHeight = header.height();
+            $(document).on('click', '#mobile-menu', function() {
+                var headerClosed = (header.height() === headerHeight);
+                if (headerClosed) {
+                    header.css('height', 'auto');
+                } else {
+                    header.css('height', headerHeight);
+                }
+            })
+            $('.header__item').not('.header__item-has-more').click(function() {
+                header.css('height', headerHeight);
+            });
+            $('[data-toggle="tooltip"]').tooltip(); 
 
-            } else {
-                header.style.height = null;
-            }
-        })
+            $('.link').on('click', function(event) {
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
 
-        var menuItems = document.querySelectorAll('.header_item');
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-            menuItem.onclick = function () {
-                header.style.height = null;
-            }
-        }
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, 'linear', function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
     </script>
 </body>
 </html>
