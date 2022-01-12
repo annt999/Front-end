@@ -14,13 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></head>
     <title>Band</title>
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <div class="app">
+<body>
+    <div class="app" id="top">
         <header class="header" id="header">
             <nav class="header__navbar">
                 <ul class="header__list">
                     <li class="header__item">
-                        <a href="#" class="header__link">Home</a>
+                        <a href="#top" class="header__link">Home</a>
                     </li>
                     <li class="header__item">
                         <a href="#band" class="header__link link">Band</a>
@@ -58,16 +58,39 @@
             </nav>
 
         </header>
-        <div class="slider" style="background-image: url('./assets/img/sliders/ny.jpg');">
-            <div class="slider__content">
-                <h3 class="slider__heading hide-on-mobile">
-                    Chicago
-                </h3>
-                <div class="slider__description hide-on-mobile">
-                    We had best time playing at Chicago beach
+        <div class="sliders">
+            <div class="slider" style="background-image: url('./assets/img/sliders/blackpink-featured-image.jpg');">
+                <div class="slider__content">
+                    <h3 class="slider__heading hide-on-mobile">
+                        Chicago
+                    </h3>
+                    <div class="slider__description hide-on-mobile">
+                        We had best time playing at Chicago beach
+                    </div>
+                </div>
+            </div>
+            <div class="slider" style="background-image: url('./assets/img/sliders/blackpink_collab_1_QCEV.jpg');">
+                <div class="slider__content">
+                    <h3 class="slider__heading hide-on-mobile">
+                        Chicago
+                    </h3>
+                    <div class="slider__description hide-on-mobile">
+                        We had best time playing at Chicago beach
+                    </div>
+                </div>
+            </div>
+            <div class="slider" style="background-image: url('./assets/img/sliders/Latest-K-Pop-Blackpi-01.jpg');">
+                <div class="slider__content">
+                    <h3 class="slider__heading hide-on-mobile">
+                        Chicago
+                    </h3>
+                    <div class="slider__description hide-on-mobile">
+                        We had best time playing at Chicago beach
+                    </div>
                 </div>
             </div>
         </div>
+      
         <div class="content">
             <div class="content__about containter-center" id="band">
                 <div class="row">
@@ -204,7 +227,7 @@
         </div>
         <footer>
             <div class="containter-center text-center">
-                <a class="link" href="#myPage" data-toggle="tooltip" title="TO TOP"><i class="footer__icon-top fas fa-chevron-up"></i></a>
+                <a class="link" href="#top"><i class="footer__icon-top fas fa-chevron-up"></i></a>
                 <div class="footer__header col l-12 m-12 c-12">
                     <i class="fab fa-facebook-square"></i>
                     <i class="fab fa-instagram-square"></i>
@@ -215,11 +238,74 @@
         </footer>
     </div>
 
+    <!-- Modal layout -->
+    <div class="modal modal-ticket">
+        <div class="modal__overlay"></div>
+        <div class="modal__body containter-center">
+            <!-- Buy ticket modal -->
+            <div class="ticket-form">
+                <header class="ticket-form__header">
+                    <h2>
+                        <i class="fas fa-suitcase ticket-form__icon--header"></i>
+                        <span class="ticket-form__title">Tickets</span>
+                    </h2>
+                </header>
+                <div class="ticket-form__container">
+                    <div class="ticket-form__item">
+                        <div class="ticket-form__label">
+                            <i class="fas fa-shopping-cart ticket-form__icon--label"></i>
+                            Tickkets, $15 per person
+                        </div>
+                        <input type="text" class="ticket-form__input" placeholder="How many?">
+                    </div>
+                    <div class="ticket-form__item">
+                        <div class="ticket-form__label">
+                            <i class="fas fa-user ticket-form__icon--label"></i>
+                            Send Tp
+                        </div>
+                        <input type="text" class="ticket-form__input" placeholder="Enter email">
+                    </div>
+                    <button class="ticket-form__btn--pay btn-normal">Pay <i class="fas fa-check"></i></button>
+                    <div class="ticket-form__controls">
+                        <button class="ticket-form__btn--close btn-normal">Close <i class="fas fa-times"></i></button>
+                        <div class="ticket-form__help">
+                            Need
+                            <a href="" class="ticket-form__help-link">help?</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    
+            <!-- End buy ticket modal-->
+        </div>
+    </div>
+
+    <!-- End modal layout -->
+
     <script type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script> 
     <script type="text/javascript" src="./assets/js/jquery-ui.min.js"></script>
        
     <script>
         $(document).ready(function() {
+
+            /*Slide show*/
+            var slideIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var sliders = $('.slider');
+                sliders.css('display', 'none');
+                slideIndex++;
+                if(slideIndex > sliders.length) {
+                    slideIndex = 1;
+                }
+                $(sliders[slideIndex - 1]).css('display', 'block');
+                setTimeout(carousel, 4000);
+            }
+
+            /* Click mobile menu */
             var header = $('#header');
             var headerHeight = header.height();
             $(document).on('click', '#mobile-menu', function() {
@@ -230,11 +316,13 @@
                     header.css('height', headerHeight);
                 }
             })
-            $('.header__item').not('.header__item-has-more').click(function() {
+
+            /* Hide menu */
+            $('.header__item, .header__more-item').not('.header__item-has-more').click(function() {
                 header.css('height', headerHeight);
             });
-            $('[data-toggle="tooltip"]').tooltip(); 
 
+            /* Scroll when click menu*/
             $('.link').on('click', function(event) {
                 if (this.hash !== "") {
                     // Prevent default anchor click behavior
@@ -247,13 +335,24 @@
                     // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
                     $('html, body').animate({
                         scrollTop: $(hash).offset().top
-                    }, 900, 'linear', function () {
+                    }, 500, 'linear', function () {
 
                         // Add hash (#) to URL when done scrolling (default click behavior)
                         window.location.hash = hash;
                     });
                 } // End if
             });
+
+            /* Show and hide modal */
+            $(document).on('click', '.content__tours-buy', function(event) {
+                event.preventDefault();
+                $('.modal-ticket').addClass('open');
+            })
+
+            $(document).on('click', '.ticket-form__btn--close', function(event) {
+                event.preventDefault();
+                $('.modal-ticket').removeClass('open');
+            })
         });
     </script>
 </body>

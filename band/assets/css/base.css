@@ -47,6 +47,15 @@ html {
     background-color: #ccc;
 }
 
+.btn-normal {
+    cursor: pointer;
+}
+.btn-normal:hover {
+    color: black;
+    background-color: #ccc;
+    transition-duration: 0.5s;
+}
+
 /* Input style*/
 
 .input-normal {
@@ -64,4 +73,59 @@ html {
     border-color: #ccc;
 }
 
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        margin-top: -50vh;
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        margin-top: 10vh;
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* Modal css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: fadeIn forwards 0.1s;
+    z-index: 100;
+    display: none;
+}
+
+.modal.open {
+    display: unset;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50vh;
+    z-index: 1;
+    animation: growth forwards 1s;
+}
 
