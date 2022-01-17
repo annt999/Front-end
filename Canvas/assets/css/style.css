@@ -57,6 +57,7 @@
     opacity: 0;
     margin-top: 15px;
     transition: opacity .3s ease,margin .25s ease;
+    z-index: 99;
 }
 .header__sub-menu{
     display: flex;
