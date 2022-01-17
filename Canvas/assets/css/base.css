@@ -1,0 +1,21 @@
+:root {
+    --black-color: #000;
+    --gray-color: #333;
+    --text-faint-color: #aab7bd;
+    --text-normal-color: #444;
+
+    --header-height: 100px;
+
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 2.4rem;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    color: #555;
+}
